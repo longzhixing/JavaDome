@@ -64,34 +64,34 @@ public class StreamLambda {
 //        name：狮，age：48，hight：176
 
 
-//        List<Student> students = new ArrayList<>();
-//        students.add(new Student("龙",22,175));
-//        students.add(new Student("虎",40,180));
-//        students.add(new Student("狼",30,185));
-//        //查询年龄最大的学生
-//        Optional<Student> max = students.stream()
-//                .max(Comparator.comparing(s -> s.getAge()));
-//        //查询年龄最小的学生
-//        Optional<Student> min = students.stream()
-//                .min(Comparator.comparing(s -> s.getAge()));
-//        // 判断是否有值
-//        if(max.isPresent()){
-//            Student student = max.get();
-//            System.out.println("name："+student.getName()+"，age："+student.getAge()+"，" +
-//                    "hight："+student.getHight()+""); // name：虎，age：40，hight：180
-//        }
-//        if(min.isPresent()){
-//            Student student = min.get();
-//            System.out.println("name："+student.getName()+"，age："+student.getAge()+"，" +
-//                    "hight："+student.getHight()+""); // name：龙，age：22，hight：175
-//        }
-
         List<Student> students = new ArrayList<>();
         students.add(new Student("龙", 22, 175,0));
         students.add(new Student("虎", 40, 180,0));
         students.add(new Student("狼", 30, 185,0));
+        //查询年龄最大的学生
+        Optional<Student> max = students.stream()
+                .max(Comparator.comparing(s -> s.getAge()));
+        //查询年龄最小的学生
+        Optional<Student> min = students.stream()
+                .min(Comparator.comparing(s -> s.getAge()));
+        // 判断是否有值
+        if(max.isPresent()){
+            Student student = max.get();
+            System.out.println("name："+student.getName()+"，age："+student.getAge()+"，" +
+                    "hight："+student.getHight()+""); // name：虎，age：40，hight：180
+        }
+        if(min.isPresent()){
+            Student student = min.get();
+            System.out.println("name："+student.getName()+"，age："+student.getAge()+"，" +
+                    "hight："+student.getHight()+""); // name：龙，age：22，hight：175
+        }
+
+        List<Student> studentsf = new ArrayList<>();
+        students.add(new Student("龙", 22, 175,0));
+        students.add(new Student("虎", 40, 180,0));
+        students.add(new Student("狼", 30, 185,0));
         //统计年龄小于35岁的学生
-        long count = students.stream().filter(s -> s.getAge() < 35).count();
+        long count = studentsf.stream().filter(s -> s.getAge() < 35).count();
         System.out.println("年齿小于35岁的人数是：" + count); // 年齿小于45岁的人数是：2
 
         //从0开始依次累加集合中的值
